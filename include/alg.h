@@ -7,4 +7,4 @@
 std::string infx2pstfx(std::string& inf);
 int eval(std::string& pref);
 
-#endif
+#endif // INCLUDE_ALG_H_
