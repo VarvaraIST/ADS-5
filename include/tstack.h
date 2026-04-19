@@ -7,6 +7,7 @@ class TStack {
  private:
     T data[N];
     int top_index;
+
  public:
     TStack() : top_index(0), data{} {}
     void push(const T& value) {
