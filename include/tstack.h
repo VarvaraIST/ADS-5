@@ -9,7 +9,10 @@ class TStack {
     int top_index;
 
  public:
-    TStack() : top_index(0) {}
+    TStack() : top_index(0) {
+    for (int i = 0; i < size; ++i) {
+        data[i] = T();     
+    }
 
     void push(const T& value) {
         if (top_index < size) {
@@ -40,4 +43,4 @@ class TStack {
     }
 };
 
-#endif  // INCLUDE_TSTACK_H_
+#endif
