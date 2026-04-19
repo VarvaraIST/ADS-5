@@ -42,7 +42,7 @@ std::string infx2pstfx(const std::string& inf) {
                 stack.pop();
             }
         } else if (isOperator(c)) {
-            while (!stack.is_empty() && stack.top() != '(' && 
+            while (!stack.is_empty() && stack.top() != '(' &&
                    getPriority(stack.top()) >= getPriority(c)) {
                 result += stack.pop();
                 result += ' ';
