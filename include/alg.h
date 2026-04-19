@@ -3,8 +3,9 @@
 #define INCLUDE_ALG_H_
 
 #include <string>
+#include "tstack.h"
 
 std::string infx2pstfx(std::string);
 int eval(std::string);
 
-#endif  // INCLUDE_ALG_H_
+#endif
