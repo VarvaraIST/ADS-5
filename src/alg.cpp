@@ -22,17 +22,15 @@ bool isOperator(char c) {
 std::string infx2pstfx(const std::string& inf) {
     TStack<char, 100> stack;
     std::string result;
-
-    for (size_t i = 0; i < inf.length(); i++) {
+    for (size_t i = 0; i < inf.length(); ++i) {
         char c = inf[i];
-
         if (isdigit(c)) {
             while (i < inf.length() && isdigit(inf[i])) {
                 result += inf[i];
-                i++;
+                ++i;
             }
             result += ' ';
-            i--;
+            --i;
         } else if (c == '(') {
             stack.push(c);
         } else if (c == ')') {
@@ -44,20 +42,21 @@ std::string infx2pstfx(const std::string& inf) {
                 stack.pop();
             }
         } else if (isOperator(c)) {
-            while (!stack.is_empty() && stack.top() != '(' &&
-                getPriority(stack.top()) >= getPriority(c)) {
+            while (!stack.is_empty() && stack.top() != '(' && 
+                   getPriority(stack.top()) >= getPriority(c)) {
                 result += stack.pop();
                 result += ' ';
             }
             stack.push(c);
         }
     }
-
     while (!stack.is_empty()) {
         result += stack.pop();
         result += ' ';
     }
-
+    if (!result.empty() && result.back() == ' ') {
+        result.pop_back();
+    }
     return result;
 }
 
