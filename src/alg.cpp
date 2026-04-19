@@ -1,12 +1,9 @@
 // Copyright 2026 NNTU-CS
+#include "../include/alg.h"
+#include <cctype>
 #include <string>
 #include <map>
-#include "../include/alg.h"
-#include "../include/tstack.h"
 #include <stack>
-#include <cctype>
-#include <sstream>
-#include <stdexcept>
 
 int getPriority(char op) {
     switch (op) {
@@ -78,9 +75,7 @@ int eval(const std::string& pref) {
             }
             stack.push(num);
             i--;
-        }
-
-        else if (isOperator(c)) {
+        } else if (isOperator(c)) {
             int b = stack.pop();
             int a = stack.pop();
             int result = 0;
